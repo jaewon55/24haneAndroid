@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">24HANE</string>
+    <string name="splash_text">24HoursAreNotEnough</string>
+    <string name="latest_time_format">최근 입실 시간 %s</string>
+    <string name="use_guide">사용 가이드</string>
+    <string name="page_guide">지원금 지침 안내</string>
+    <string name="inquiry_attendance">출입기록 문의사항</string>
+    <string name="inquiry_mobile">앱 문의사항</string>
+    <string name="logout">로그아웃</string>
+    <string name="open_source_license">OpenSourceLicense</string>
+    <string name="widget_error">연결된 네트워크가 없어요.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="_24hoursarenotenough">24HoursAreNotEnough</string>
+    <string name="today_card_title">Today</string>
+    <string name="month_card_title">Month</string>
+    <string name="battery_optimization_text">배터리 최적화 제외</string>
+
+    <string name="license_retrofit2">Copyright 2013 Square, Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+   \n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\n
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</string>
+
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="overViewViewModel"
+            type="com.hane24.hoursarenotenough24.overview.OverViewViewModel" />
+
+        <variable
+            name="logListViewModel"
+            type="com.hane24.hoursarenotenough24.inoutlog.LogListViewModel" />
+
+    </data>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/hane_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_24hane"
+                    app:logoColor="@{overViewViewModel.inOutState}" />
+
+                <ImageView
+                    android:id="@+id/refresh_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@id/menu_button"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_refresh"
+                    app:isEnabled="@{overViewViewModel.initState}"
+                    app:listViewLoading="@{logListViewModel.refreshLoading}"
+                    app:overViewLoading="@{overViewViewModel.refreshLoading}" />
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/refresh_progressbar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_alignStart="@id/refresh_button"
+                    android:layout_alignEnd="@id/refresh_button"
+                    android:layout_centerVertical="true"
+                    android:indeterminateTint="@color/black"
+                    android:visibility="invisible"
+                    app:listViewLoading="@{logListViewModel.refreshLoading}"
+                    app:overViewLoading="@{overViewViewModel.refreshLoading}" />
+
+                <ImageButton
+                    android:id="@+id/menu_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/menu_selector"
+                    android:padding="5dp"
+                    android:paddingEnd="16dp"
+                    android:src="@drawable/ic_menu"
+                    app:isEnabled="@{overViewViewModel.initState}" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+</layout>

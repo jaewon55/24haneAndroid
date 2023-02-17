@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group>
+        <item
+            android:id="@+id/nav_item_use_guide"
+            android:icon="@drawable/ic_notion"
+            android:title="@string/use_guide" />
+        <item
+            android:id="@+id/nav_item_subsidy_guide"
+            android:icon="@drawable/ic_42logo"
+            android:title="@string/page_guide" />
+        <item
+            android:id="@+id/nav_item_inquire_mobile"
+            android:icon="@drawable/ic_help"
+            android:title="@string/inquiry_mobile" />
+        <item
+            android:id="@+id/nav_item_inquire_attendance"
+            android:icon="@drawable/ic_help"
+            android:title="@string/inquiry_attendance" />
+    </group>
+
+</menu>

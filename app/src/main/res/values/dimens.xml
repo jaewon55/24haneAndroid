@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tab_selected_size">6dp</dimen>
+    <dimen name="tab_default_size">5dp</dimen>
+</resources>

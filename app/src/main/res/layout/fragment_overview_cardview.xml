@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="inOutState"
+            type="Boolean" />
+
+        <variable
+            name="acTime"
+            type="String" />
+
+        <variable
+            name="targetTime"
+            type="String" />
+
+        <variable
+            name="progressPercent"
+            type="int" />
+
+        <variable
+            name="percentText"
+            type="String" />
+
+        <variable
+            name="fragment"
+            type="com.hane24.hoursarenotenough24.overview.OverViewFragment" />
+
+        <variable
+            name="isMonth"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/card_view_background"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        tools:layout_height="210dp"
+        tools:layout_margin="15dp"
+        tools:layout_width="380dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/accumulate_title"
+                style="@style/CardViewSubTitleText"
+                android:text="누적 시간"
+                android:textColor="@{inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintBottom_toTopOf="@id/accumulate_time"
+                app:layout_constraintEnd_toStartOf="@id/card_view_divider"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/accumulate_time"
+                style="@style/CardViewTimeText"
+                android:layout_marginBottom="10dp"
+                android:text="@{acTime}"
+                android:textColor="@{inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintBottom_toTopOf="@id/card_view_guideline"
+                app:layout_constraintEnd_toStartOf="@id/card_view_divider"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="10:00" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/card_view_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/target_title"
+                style="@style/CardViewSubTitleText"
+                android:layout_marginTop="10dp"
+                android:text="목표 시간"
+                android:textColor="@{inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintBottom_toTopOf="@id/target_time_view"
+                app:layout_constraintEnd_toStartOf="@id/card_view_divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_view_guideline" />
+
+            <TextView
+                android:id="@+id/target_time_view"
+                style="@style/CardViewTimeText"
+                android:onClick="@{() -> fragment.targetTimeOnClick(isMonth)}"
+                android:text="@{targetTime}"
+                android:textColor="@{inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintEnd_toEndOf="@id/accumulate_time"
+                app:layout_constraintTop_toBottomOf="@id/target_title"
+                tools:text="230:00" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:onClick="@{() -> fragment.targetTimeOnClick(isMonth)}"
+                android:src="@drawable/ic_picker_button"
+                app:layout_constraintBottom_toBottomOf="@id/target_time_view"
+                app:layout_constraintStart_toEndOf="@id/target_time_view"
+                app:layout_constraintTop_toTopOf="@id/target_time_view"
+                app:tint="@color/picker_button" />
+
+            <View
+                android:id="@+id/card_view_divider"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="75dp"
+                android:background="@color/division_line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/card_view_progress"
+                style="@style/Progress"
+                isStateOn="@{inOutState}"
+                android:progress="@{progressPercent}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_view_divider"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/card_view_progress_text"
+                style="@style/ProgressPercentageText"
+                android:text="@{percentText}"
+                app:layout_constraintBottom_toBottomOf="@id/card_view_progress"
+                app:layout_constraintEnd_toEndOf="@id/card_view_progress"
+                app:layout_constraintStart_toStartOf="@id/card_view_progress"
+                app:layout_constraintTop_toTopOf="@id/card_view_progress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

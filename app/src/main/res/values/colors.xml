@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+
+    <color name="card_view_background">#F3F2F9</color>
+    <color name="division_line">#969494</color>
+    <color name="picker_button">#959595</color>
+    <color name="progress_text">#5A5C57</color>
+
+    <color name="tab_default">#D9D9D9</color>
+    <color name="tab_select">#979797</color>
+
+    <color name="main_color">#1F5390</color>
+
+    <color name="on_icon_color">#1F5390</color>
+    <color name="on_title_color">#1F5390</color>
+    <color name="on_text_color">#1E3C5F</color>
+    <color name="on_progress_front">#5185C2</color>
+    <color name="on_progress_back">#C3CFDD</color>
+
+    <color name="off_icon_color">#878B90</color>
+    <color name="off_title_color">#7E8997</color>
+    <color name="off_text_color">#7E8997</color>
+    <color name="off_progress_front">#878B90</color>
+    <color name="off_progress_back">#DCDEE0</color>
+
+    <color name="time_text_color">#5A5C57</color>
+    <color name="main_info_text_color">#959595</color>
+    <color name="sub_info_text_color">#CC959595</color>
+    <color name="none">#00000000</color>
+
+    <color name="calendar_color1">#D1EDFA</color>
+    <color name="calendar_color2">#A1E8FF</color>
+    <color name="calendar_color3">#3FC3FF</color>
+    <color name="calendar_color4">#0097DC</color>
+    <color name="calendar_color5">#0070B4</color>
+    <color name="next_day_background">#FAFAFA</color>
+    <color name="next_day_text">#D4D4D4</color>
+    <color name="calendar_item_stroke_default">#E1E1E1</color>
+
+    <color name="dialog_color">#47B5FF</color>
+    <color name="selected_color">#DDFF5722</color>
+
+    <color name="widget_in_state_color">#09FF21</color>
+    <color name="widget_out_state_color">#D9D9D9</color>
+
+</resources>

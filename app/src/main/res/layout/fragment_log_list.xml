@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hane24.hoursarenotenough24.inoutlog.LogListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/calender_left_button"
+            style="@style/LogCalendarButton"
+            buttonState="@{viewModel.leftButtonState}"
+            android:onClick="@{() -> viewModel.leftButtonOnClick()}"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/calendar_date"
+            app:layout_constraintEnd_toStartOf="@id/calendar_date"
+            app:layout_constraintTop_toTopOf="@id/calendar_date" />
+
+        <TextView
+            android:id="@+id/calendar_date"
+            style="@style/LogCalendarDateText"
+            android:text="@{viewModel.calendarDateText}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dec 2022" />
+
+        <ImageButton
+            android:id="@+id/calender_right_button"
+            style="@style/LogCalendarButton"
+            buttonState="@{viewModel.rightButtonState}"
+            android:onClick="@{() -> viewModel.rightButtonOnClick()}"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/calendar_date"
+            app:layout_constraintStart_toEndOf="@id/calendar_date"
+            app:layout_constraintTop_toTopOf="@id/calendar_date" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calendar_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
+            android:paddingHorizontal="16dp"
+            app:calendarGrid="@{viewModel.calendarItemList}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_min="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_date"
+            app:loadingState="@{viewModel.loadingState}"
+            app:spanCount="7"
+            tools:itemCount="31"
+            tools:listitem="@layout/fragment_log_list_calendar_item" />
+
+        <ProgressBar
+            android:id="@+id/loading_progressbar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/off_progress_front"
+            app:layout_constraintBottom_toBottomOf="@id/calendar_recycler"
+            app:layout_constraintEnd_toEndOf="@id/calendar_recycler"
+            app:layout_constraintStart_toStartOf="@id/calendar_recycler"
+            app:layout_constraintTop_toTopOf="@id/calendar_recycler"
+            app:loadingState="@{viewModel.loadingState}" />
+
+        <TextView
+            android:id="@+id/date_text"
+            style="@style/LogListSubTitleText"
+            android:text="@{viewModel.selectedDateText}"
+            app:layout_constraintStart_toStartOf="@id/calendar_recycler"
+            app:layout_constraintTop_toBottomOf="@id/calendar_recycler"
+            tools:text="Date: 2022.11.5" />
+
+        <TextView
+            android:id="@+id/day_accumulation_time"
+            style="@style/LogListTimeText"
+            android:text="@{viewModel.dayAccumulationTimeText}"
+            app:layout_constraintEnd_toStartOf="@id/log_list_guideline"
+            app:layout_constraintStart_toStartOf="@id/date_text"
+            app:layout_constraintTop_toBottomOf="@id/date_text"
+            tools:text="7h 45m" />
+
+        <TextView
+            android:id="@+id/day_text"
+            style="@style/LogListSubTitleText"
+            android:layout_marginTop="0dp"
+            android:text="Day"
+            app:layout_constraintEnd_toEndOf="@id/day_accumulation_time"
+            app:layout_constraintStart_toStartOf="@id/day_accumulation_time"
+            app:layout_constraintTop_toBottomOf="@id/day_accumulation_time" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/log_list_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/month_accumulation_time"
+            style="@style/LogListTimeText"
+            android:layout_marginTop="0dp"
+            android:text="@{viewModel.monthAccumulationTimeText}"
+            app:layout_constraintBottom_toBottomOf="@id/day_accumulation_time"
+            app:layout_constraintEnd_toEndOf="@id/calendar_recycler"
+            app:layout_constraintStart_toEndOf="@id/log_list_guideline"
+            app:layout_constraintTop_toTopOf="@id/day_accumulation_time"
+            tools:text="119h 45m" />
+
+        <TextView
+            android:id="@+id/month_text"
+            style="@style/LogListSubTitleText"
+            android:layout_marginTop="0dp"
+            android:text="Month"
+            app:layout_constraintEnd_toEndOf="@id/month_accumulation_time"
+            app:layout_constraintStart_toStartOf="@id/month_accumulation_time"
+            app:layout_constraintTop_toBottomOf="@id/month_accumulation_time" />
+
+        <TextView
+            android:id="@+id/logs_text"
+            style="@style/LogListSubTitleText"
+            android:text="Logs"
+            app:layout_constraintStart_toStartOf="@id/date_text"
+            app:layout_constraintTop_toBottomOf="@id/day_text" />
+
+        <LinearLayout
+            android:id="@+id/logs_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bottom_stroke"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="@id/calendar_recycler"
+            app:layout_constraintStart_toStartOf="@id/calendar_recycler"
+            app:layout_constraintTop_toBottomOf="@id/logs_text">
+
+            <TextView
+                style="@style/LogListHeaderTextView"
+                android:text="입실" />
+
+            <TextView
+                style="@style/LogListHeaderTextView"
+                android:text="퇴실" />
+
+            <TextView
+                style="@style/LogListHeaderTextView"
+                android:text="체류시간" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/table_recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="3dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/logs_header"
+            app:layout_constraintHeight_max="500dp"
+            app:layout_constraintStart_toStartOf="@id/logs_header"
+            app:layout_constraintTop_toBottomOf="@id/logs_header"
+            app:tableList="@{viewModel.tableItemList}"
+            tools:itemCount="40"
+            tools:listitem="@layout/fragment_log_list_logs_item" />
+
+        <TextView
+            tableList="@{viewModel.tableItemList}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="태깅 기록이 없어요"
+            android:textAlignment="center"
+            android:paddingVertical="10dp"
+            android:textColor="@color/main_info_text_color"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="@id/logs_header"
+            app:layout_constraintStart_toStartOf="@id/logs_header"
+            app:layout_constraintTop_toBottomOf="@id/logs_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

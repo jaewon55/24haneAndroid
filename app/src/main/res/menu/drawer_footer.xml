@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:id="@+id/nav_footer">
+        <item
+            android:id="@+id/nav_item_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+
+        <item
+            android:id="@+id/nav_item_license"
+            android:title="@string/open_source_license" />
+    </group>
+</menu>

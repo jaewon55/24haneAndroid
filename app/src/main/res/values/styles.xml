@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="splash_text_style">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="Widget.24hane.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="AppTheme.NumberPicker" parent="android:Widget">
+        <item name="colorControlNormal">@color/dialog_color</item>
+    </style>
+
+    <style name="OverViewAppTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:text">@string/_24hoursarenotenough</item>
+    </style>
+
+    <style name="CardViewTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CardViewSubTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="CardViewTimeText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">35dp</item>
+    </style>
+
+    <style name="Progress" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:indeterminate">false</item>
+        <item name="android:max">100</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:progressDrawable">@drawable/progress_circle</item>
+    </style>
+
+    <style name="ProgressPercentageText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/progress_text</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="LogCalendarButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@color/none</item>
+    </style>
+
+    <style name="LogCalendarDateText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/main_info_text_color</item>
+    </style>
+
+    <style name="LogListSubTitleText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/main_info_text_color</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="LogListTimeText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/time_text_color</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LogListHeaderTextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="LogListRecyclerItemTextView" parent="LogListHeaderTextView">
+        <item name="android:textColor">@color/time_text_color</item>
+    </style>
+
+</resources>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hane24.hoursarenotenough24.overview.OverViewViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.hane24.hoursarenotenough24.overview.OverViewFragment" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/overview_title"
+                style="@style/OverViewAppTitleText"
+                android:textColor="@{viewModel.inOutState ? @color/on_title_color : @color/off_title_color}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/day_title"
+                style="@style/CardViewTitleText"
+                android:text="@string/today_card_title"
+                android:textColor="@{viewModel.inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintBottom_toTopOf="@id/day_card_view"
+                app:layout_constraintStart_toStartOf="@id/day_card_view"
+                app:layout_constraintTop_toBottomOf="@id/overview_title"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/main_info_text_color"
+                android:textSize="15dp"
+                app:isStateOn="@{viewModel.inOutState}"
+                app:latestTime="@{viewModel.latestTagTime}"
+                app:layout_constraintBottom_toBottomOf="@id/day_title"
+                app:layout_constraintEnd_toEndOf="@id/day_card_view"
+                tools:text="최근 입실 시간 13:00" />
+
+            <include
+                android:id="@+id/day_card_view"
+                layout="@layout/fragment_overview_cardview"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_marginHorizontal="16dp"
+                app:acTime="@{viewModel.dayAccumulationTime}"
+                app:fragment="@{fragment}"
+                app:inOutState="@{viewModel.inOutState}"
+                app:isMonth="@{false}"
+                app:layout_constraintBottom_toTopOf="@id/month_card_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/overview_title"
+                app:layout_constraintWidth_max="400dp"
+                app:percentText="@{viewModel.dayProgressPercentText}"
+                app:progressPercent="@{viewModel.dayProgressPercent}"
+                app:targetTime="@{viewModel.dayTargetTime}" />
+
+            <TextView
+                android:id="@+id/month_title"
+                style="@style/CardViewTitleText"
+                android:text="@string/month_card_title"
+                android:textColor="@{viewModel.inOutState ? @color/on_text_color : @color/off_text_color}"
+                app:layout_constraintBottom_toTopOf="@id/month_card_view"
+                app:layout_constraintStart_toStartOf="@id/month_card_view"
+                app:layout_constraintTop_toBottomOf="@id/day_card_view"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <include
+                android:id="@+id/month_card_view"
+                layout="@layout/fragment_overview_cardview"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:layout_marginHorizontal="16dp"
+                android:maxWidth="400dp"
+                app:acTime="@{viewModel.monthAccumulationTime}"
+                app:fragment="@{fragment}"
+                app:inOutState="@{viewModel.inOutState}"
+                app:isMonth="@{true}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/day_card_view"
+                app:layout_constraintWidth_max="400dp"
+                app:percentText="@{viewModel.monthProgressPercentText}"
+                app:progressPercent="@{viewModel.monthProgressPercent}"
+                app:targetTime="@{viewModel.monthTargetTime}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

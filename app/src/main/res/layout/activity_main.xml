@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="overViewViewModel"
+            type="com.hane24.hoursarenotenough24.overview.OverViewViewModel" />
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/app_bar"
+                layout="@layout/activity_main_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:overViewViewModel="@{overViewViewModel}" />
+
+            <include
+                android:id="@+id/content_main"
+                layout="@layout/activity_main_content"
+                app:overViewViewModel="@{overViewViewModel}" />
+
+        </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/activity_main_navigation_header"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/on_text_color"
+            app:menu="@menu/drawer_body">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_footer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:menu="@menu/drawer_footer" />
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/app_widget_description"
+    android:initialKeyguardLayout="@layout/basic_widget"
+    android:initialLayout="@layout/basic_widget"
+    android:minWidth="110dp"
+    android:minHeight="40dp"
+    android:maxResizeWidth="180dp"
+    android:maxResizeHeight="110dp"
+    android:targetCellHeight="1"
+    android:targetCellWidth="1"
+    android:previewImage="@drawable/ic_24hane"
+    android:previewLayout="@layout/basic_widget"
+    android:resizeMode="vertical|horizontal"
+    android:updatePeriodMillis="3600000"
+    android:widgetCategory="home_screen" />
